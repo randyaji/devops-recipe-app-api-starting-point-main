@@ -186,7 +186,6 @@ resource "aws_iam_user_policy_attachment" "rds" {
 # Policy for ECS access #
 #########################
 
-
 data "aws_iam_policy_document" "ecs" {
   statement {
     effect = "Allow"
@@ -208,24 +207,20 @@ data "aws_iam_policy_document" "ecs" {
   }
 }
 
-
 resource "aws_iam_policy" "ecs" {
   name        = "${aws_iam_user.cd.name}-ecs"
   description = "Allow user to manage ECS resources."
   policy      = data.aws_iam_policy_document.ecs.json
 }
 
-
 resource "aws_iam_user_policy_attachment" "ecs" {
   user       = aws_iam_user.cd.name
   policy_arn = aws_iam_policy.ecs.arn
 }
 
-
 #########################
 # Policy for IAM access #
 #########################
-
 
 data "aws_iam_policy_document" "iam" {
   statement {
@@ -252,24 +247,20 @@ data "aws_iam_policy_document" "iam" {
   }
 }
 
-
 resource "aws_iam_policy" "iam" {
   name        = "${aws_iam_user.cd.name}-iam"
   description = "Allow user to manage IAM resources."
   policy      = data.aws_iam_policy_document.iam.json
 }
 
-
 resource "aws_iam_user_policy_attachment" "iam" {
   user       = aws_iam_user.cd.name
   policy_arn = aws_iam_policy.iam.arn
 }
 
-
 ################################
 # Policy for CloudWatch access #
 ################################
-
 
 data "aws_iam_policy_document" "logs" {
   statement {
@@ -285,13 +276,11 @@ data "aws_iam_policy_document" "logs" {
   }
 }
 
-
 resource "aws_iam_policy" "logs" {
   name        = "${aws_iam_user.cd.name}-logs"
   description = "Allow user to manage CloudWatch resources."
   policy      = data.aws_iam_policy_document.logs.json
 }
-
 
 resource "aws_iam_user_policy_attachment" "logs" {
   user       = aws_iam_user.cd.name
