@@ -1,6 +1,5 @@
 name: Destroy
 
-
 on:
   workflow_dispatch:
     inputs:
@@ -10,7 +9,6 @@ on:
         options:
           - staging
           - prod
-
 
 jobs:
   destroy:
