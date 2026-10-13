@@ -22,7 +22,3 @@ resource "aws_iam_role_policy_attachment" "task_execution_role" {
 resource "aws_ecs_cluster" "main" {
   name = "${local.prefix}-cluster"
 }
-
-resource "aws_ecs_cluster" "main" {
-  name = "${local.prefix}-cluster"
-}
