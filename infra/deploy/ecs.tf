@@ -2,10 +2,6 @@
 # ECS Cluster for running app on Fargate.
 ##
 
-resource "aws_ecs_cluster" "main" {
-  name = "${local.prefix}-cluster"
-}
-
 resource "aws_iam_policy" "task_execution_role_policy" {
   name        = "${local.prefix}-task-exec-role-policy"
   path        = "/"
@@ -21,6 +17,10 @@ resource "aws_iam_role" "task_execution_role" {
 resource "aws_iam_role_policy_attachment" "task_execution_role" {
   role       = aws_iam_role.task_execution_role.name
   policy_arn = aws_iam_policy.task_execution_role_policy.arn
+}
+
+resource "aws_ecs_cluster" "main" {
+  name = "${local.prefix}-cluster"
 }
 
 resource "aws_ecs_cluster" "main" {
