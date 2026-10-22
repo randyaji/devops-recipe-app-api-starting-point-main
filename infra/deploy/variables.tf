@@ -10,7 +10,7 @@ variable "project" {
 
 variable "contact" {
   description = "Contact email for tagging resources"
-  default     = "mark@example.com"
+  default     = "randy.aji@anteraja.id"
 }
 
 variable "db_username" {
@@ -36,7 +36,7 @@ variable "django_secret_key" {
 
 variable "dns_zone_name" {
   description = "Domain name"
-  default     = "londonappdev.net"
+  default     = "askara.web.id"
 }
 
 variable "subdomain" {
