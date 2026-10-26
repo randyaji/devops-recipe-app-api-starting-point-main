@@ -46,6 +46,6 @@ variable "subdomain" {
   default = {
     prod    = "api"
     staging = "api.staging"
-    dev     = "api.dev"
+    #dev     = "api.dev" disable env dev
   }
 }
